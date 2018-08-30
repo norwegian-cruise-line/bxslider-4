@@ -1,7 +1,7 @@
 {
-  "name": "bxslider",
-  "description": "Touch enabled jQuery plugin for creating responsive carousels and sliders.",
-  "version": "4.2.14",
+  "name": "bxslider-ncl",
+  "description": "Touch enabled jQuery plugin for creating responsive carousels and sliders. | Fork.",
+  "version": "4.2.15",
   "homepage": "http://bxslider.com",
   "author": {
     "name": "Steven Wanderski",
@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/stevenwanderski/bxslider-4/bxslider-4.git"
+    "url": "https://github.com/norwegian-cruise-line/bxslider-4.git"
   },
   "bugs": {
     "url": "https://github.com/stevenwanderski/bxslider-4/issues"
