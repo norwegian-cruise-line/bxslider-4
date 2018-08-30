@@ -1107,7 +1107,10 @@
       if (e.type !== 'touchstart' && e.button !== 0) {
         return;
       }
-      e.preventDefault();
+
+      //Commenting the line below prevents the scroll issue when touching over the slider on mobile
+      //e.preventDefault();
+
       //disable slider controls while user is interacting with slides to avoid slider freeze that happens on touch devices when a slide swipe happens immediately after interacting with slider controls
       slider.controls.el.addClass('disabled');
 
