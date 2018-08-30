@@ -5,3 +5,4 @@ jscs.report.txt
 /node_modules
 jquery.bxslider.zip
 npm-debug.log
+.idea/
