@@ -1101,6 +1101,7 @@
      *  - DOM event object
      */
     var onTouchStart = function(e) {
+      var parentHorizontalPadding;
       // watch only for left mouse, touch contact and pen contact
       // touchstart event object doesn`t have button property
       if (e.type !== 'touchstart' && e.button !== 0) {
@@ -1115,6 +1116,12 @@
       } else {
         // record the original position when touch starts
         slider.touch.originalPos = el.position();
+        parentHorizontalPadding = slider.viewport.innerWidth() - slider.viewport.width();
+
+        // In case slider parent have horizontal padding recalculate position
+        if(parentHorizontalPadding > 0)
+            slider.touch.originalPos.left -= (parentHorizontalPadding/2);
+
         var orig = e.originalEvent,
         touchPoints = (typeof orig.changedTouches !== 'undefined') ? orig.changedTouches : [orig];
 		var chromePointerEvents = typeof PointerEvent === 'function'; 
