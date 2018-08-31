@@ -1,4 +1,7 @@
-# bxSlider 4.2.14
+# bxslider-ncl 4.2.16
+
+This repository is a fork from the original bxSlider library by [stevenwanderski](https://github.com/stevenwanderski/bxslider-4).
+
 ## The fully-loaded, responsive jQuery content slider
 
 ### Why should I use this slider?
