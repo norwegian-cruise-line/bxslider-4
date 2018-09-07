@@ -14,7 +14,7 @@
     slideSelector: '',
     infiniteLoop: true,
     hideControlOnEnd: false,
-    speed: 500,
+    speed: 600,
     easing: null,
     slideMargin: 0,
     startSlide: 0,
@@ -23,7 +23,7 @@
     ticker: false,
     tickerHover: false,
     adaptiveHeight: false,
-    adaptiveHeightSpeed: 500,
+    adaptiveHeightSpeed: 600,
     video: false,
     useCSS: true,
     preloadImages: 'visible',
@@ -1428,17 +1428,33 @@
       if (slider.settings.controls) { updateDirectionControls(); }
       // if slider is set to mode: "fade"
       if (slider.settings.mode === 'fade') {
+
         // if adaptiveHeight is true and next height is different from current height, animate to the new height
         if (slider.settings.adaptiveHeight && slider.viewport.height() !== getViewportHeight()) {
           slider.viewport.animate({height: getViewportHeight()}, slider.settings.adaptiveHeightSpeed);
         }
         // fade out the visible child and reset its z-index value
-        slider.children.filter(':visible').fadeOut(slider.settings.speed).css({zIndex: 0});
+        slider.children.filter(':visible').fadeOut(slider.settings.speed);
+
+        // Wait until fade in finished
+        setTimeout(function () {
+            slider.children.filter(':visible').css({
+                zIndex: 0
+            });
+        }, slider.settings.speed - 200);
+
         // fade in the newly requested slide
-        slider.children.eq(slider.active.index).css('zIndex', slider.settings.slideZIndex + 1).fadeIn(slider.settings.speed, function() {
-          $(this).css('zIndex', slider.settings.slideZIndex);
-          updateAfterSlideTransition();
+        slider.children.eq(slider.active.index).fadeIn(slider.settings.speed, function() {
+            $(this).css('zIndex', slider.settings.slideZIndex);
+            updateAfterSlideTransition();
         });
+
+        // Change the z-index of new slide
+        setTimeout(function() {
+            slider.children.eq(slider.active.index).css('zIndex', slider.settings.slideZIndex + 1);
+        }, slider.settings.speed);
+
+
       // slider mode is not "fade"
       } else {
         // if adaptiveHeight is true and next height is different from current height, animate to the new height
