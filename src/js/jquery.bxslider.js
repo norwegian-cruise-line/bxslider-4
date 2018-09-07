@@ -1,5 +1,5 @@
 /**
- * bxSlider v4.2.1d
+ * bxSlider v4.2.17
  * Copyright 2013-2017 Steven Wanderski
  * Written while drinking Belgian ales and listening to jazz
  * Licensed under MIT (http://opensource.org/licenses/MIT)
@@ -14,7 +14,7 @@
     slideSelector: '',
     infiniteLoop: true,
     hideControlOnEnd: false,
-    speed: 600,
+    speed: 500,
     easing: null,
     slideMargin: 0,
     startSlide: 0,
@@ -23,7 +23,7 @@
     ticker: false,
     tickerHover: false,
     adaptiveHeight: false,
-    adaptiveHeightSpeed: 600,
+    adaptiveHeightSpeed: 500,
     video: false,
     useCSS: true,
     preloadImages: 'visible',
