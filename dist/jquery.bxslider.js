@@ -1,5 +1,5 @@
 /**
- * bxSlider v4.2.17
+ * bxSlider v4.2.18
  * Copyright 2013-2017 Steven Wanderski
  * Written while drinking Belgian ales and listening to jazz
  * Licensed under MIT (http://opensource.org/licenses/MIT)
@@ -1284,12 +1284,14 @@
       }
       // if slider had swipe with left mouse, touch contact and pen contact
       if (slider.hasMove === false && (slider.originalClickButton === 0 || slider.originalEventType === 'touchstart')) {
-        // trigger click event (fix for Firefox59 and PointerEvent standard compatibility)
-        $(slider.originalClickTarget).trigger({
-          type: 'click',
-          button: slider.originalClickButton,
-          buttons: slider.originalClickButtons
-        });
+          var event = new MouseEvent('click', {
+              view: window,
+              bubbles: true,
+              cancelable: true,
+              button: slider.originalClickButton,
+              buttons: slider.originalClickButtons
+          });
+          slider.originalClickTarget.dispatchEvent(event);
       }
     };
 
