@@ -1,4 +1,4 @@
-# bxslider-ncl 4.2.18
+# bxslider-ncl 4.2.19
 
 This repository is a fork from the original bxSlider library by [stevenwanderski](https://github.com/stevenwanderski/bxslider-4).
 
