@@ -364,8 +364,10 @@
         // if carousel, return a slice of children
         } else {
           // get the individual slide index
-          // var currentIndex = slider.settings.moveSlides === 1 ? slider.active.index : slider.active.index * getMoveBy();
-          var currentIndex = slider.settings.moveSlides === 1 ? slider.active.index : slider.active.index === 0 ? 0 : slider.active.index * getMoveBy() - 1;
+          var currentIndex = slider.settings.moveSlides === 1 ? slider.active.index : slider.active.index * getMoveBy();
+          if (currentIndex + getMoveBy() > slider.children.length) {
+              currentIndex = slider.children.length - getMoveBy();
+          }
           // add the current slide to the children
           children = slider.children.eq(currentIndex);
           // cycle through the remaining "showing" slides
